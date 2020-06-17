@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!-- Page Content -->
+    <div class="container">
+
+    <div class="row">
+
+    <!-- Post Content Column -->
+    <div class="col-lg-8">
+
+        <!-- Title -->
+        <h1 class="mt-4">{{ title|upper }}</h1>
+
+        <!-- Author -->
+        <p class="lead">
+
+            <a href="{{ path('affiche_homepage') }}">Home</a>
+        </p>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p>{{ postdate|date }}</p>
+
+        <hr>
+
+        <!-- Preview Image -->
+        <img class="img-fluid rounded" src="{{ asset('uploads/images/' ~ photo) }}" alt="{{ title }}">
+
+        <hr>
+
+        <!-- Post Content -->
+        <p class="lead">{{ description }}</p>
+
+
+
+        <hr>
+
+        <!-- Comments Form -->
+        <div class="card my-4">
+            <h5 class="card-header">Leave a Comment:</h5>
+            <div class="card-body">
+                <form action="{{ path('add_comment',{'id': id}) }}" method="post" id="comment">
+                    <div class="form-group">
+
+                        <textarea class="form-control" rows="3" name="comment" placeholder="Comment here"></textarea>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Single Comment -->
+        {% for comment in p.comments %}
+        <div class="media mb-4">
+            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+            <div class="media-body">
+                <h5 class="mt-0">{{ comment.getUser().getUsername()}}</h5>
+                <p>{{ comment.content }}</p><br><br>
+
+
+            </div>
+            {% endfor %}
+            <!-- Comment with nested comments -->
+
+
+        </div>
+        <br><br><br><br><br>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+            <!-- Search Widget -->
+
+
+
+
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+{% endblock %}

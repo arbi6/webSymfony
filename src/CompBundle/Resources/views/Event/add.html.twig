@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    {{ form(form) }}
+        {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+    <h3>Vous ne pouvez pas ajouter une evenement <br> <a href="{{ path('fos_user_registration_register') }}">register</a><br>
+        <a href="{{ path('fos_user_security_login') }}">login</a></h3>
+    {% endif %}
+{% endblock %}

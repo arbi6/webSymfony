@@ -1,0 +1,68 @@
+comp_homepage:
+    path:     /home
+    defaults: { _controller: CompBundle:Comp:index }
+
+add_homepage:
+    path:     /add
+    defaults: { _controller: CompBundle:Blog:add }
+
+add_mobile_homepage:
+    path:     /mobile/add
+    defaults: { _controller: CompBundle:Blog:add_mobile }
+
+add_mobile_photo:
+    path:     /mobile/add_image/{id}
+    defaults: { _controller: CompBundle:Blog:addImage }
+
+get_photo_mobile:
+    path:     /mobile/get_image/{image}
+    defaults: { _controller: CompBundle:Blog:get_image }
+
+affiche_homepage:
+    path:     /afficher
+    defaults: { _controller: CompBundle:Blog:list }
+
+affiche_mobile_homepage:
+    path:     /mobile/affiche
+    defaults: { _controller: CompBundle:Blog:list_mobile }
+
+connexion_mobile:
+    path:     /mobile/connexion
+    defaults: { _controller: CompBundle:Blog:connexion }
+
+
+update_event:
+    path:     /update/{id}
+    defaults: { _controller: CompBundle:Blog:update }
+
+update_mobile_event:
+    path:     /mobile/update/{id}
+    defaults: { _controller: CompBundle:Blog:update_mobile }
+
+delete_event:
+    path:     /supp
+    defaults: { _controller: CompBundle:Blog:delete }
+
+delete_mobile_event:
+    path:     /mobile/supp/{id}
+    defaults: { _controller: CompBundle:Blog:delete_mobile }
+
+detailed_event:
+    path:     /detailed/{id}
+    defaults: { _controller: CompBundle:Blog:show }
+
+detailed_mobile_event:
+    path:     /mobile/detailed/{id}
+    defaults: { _controller: CompBundle:Blog:show_mobile }
+
+add_comment:
+    path:     /addcoment/{id}
+    defaults: { _controller: CompBundle:Blog:addComment }
+
+add_mobile_comment:
+    path:     /mobile/addcoment/{user}/{p}
+    defaults: { _controller: CompBundle:Blog:addComment_mobile }
+
+adds_event:
+    path:     /adds/{id}
+    defaults: { _controller: CompBundle:Blog:sad }

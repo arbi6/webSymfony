@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Lists of Posts !</h1>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+            <div class="post-container">
+                <div class="row">
+                    <section class="featured section-padding">
+                        <div class="container">
+                            <div class="row">
+                                {% for posts in posts %}
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+                                        <div class="featured-box">
+                                            <figure>
+                                                <a href="{{ path('detailed_event',{'id': posts.id}) }}"><img class="img-fluid" src="{{ asset('uploads/images/'  ~ posts.photo)  }}" alt=""></a>
+                                            </figure>
+                                            <div class="content-wrapper">
+                                                <div class="feature-content">
+                                                    <h4><a href="{{ path('detailed_event',{'id': posts.id}) }}">{{ posts.title }}</a></h4>
+                                                    <p class="listing-tagline">{{ posts.description|trim }}</p>
+                                                    <div class="meta-tag">
+
+                                                        <div class="user-name">
+                                                            <a href="#"><i class="lni-user"></i></a>
+                                                        </div>
+                                                        <div class="listing-category">
+                                                            <a href="#"><i class="lni-alarm-clock"></i>{{ posts.postdate|date() }} </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="listing-bottom clearfix">
+                                                    <div class="btn-group">
+                                                        <a href="{{ path('update_event',{'id': posts.id}) }}"><button type="button" class="btn btn-sm btn-outline-info">Update</button></a>
+                                                        <a href="{{ path('delete_event',{'id': posts.id}) }}"><button type="button" class="btn btn-sm btn-outline-danger">Delete</button></a>
+                                                        <a href="{{ path('detailed_event',{'id': posts.id}) }}"><button type="button" class="btn btn-sm btn-outline-primary">View</button></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+
+                    </section>
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
